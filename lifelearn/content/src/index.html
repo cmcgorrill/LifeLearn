@@ -1,9 +1,9 @@
 {% load staticfiles %}
-{% csrf_token %}
 <html>
 	<head>
 		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     	<link href="{% static 'css/login.css' %}" rel="stylesheet">
+    	<link href="{% static 'css/general.css' %}" rel="stylesheet">
 
     	<script src="{% static 'js/jquery.min.js' %}"></script>
 	    <script src="(% static 'js/bootstrap.min.js' %}"></script>
@@ -15,18 +15,12 @@
 				<div id="login-container" class="col-sm-4 col-sm-offset-4 centering">
 					<h1>LifeLearn</h1>
 					<!-- login form -->
-					<form method="POST">
-						<div class="form-group">
-							<select class="form-control" id="type" placeholder="User">
-								<option>Therapist</option>
-								<option>Patient</option>
-							</select>
-						</div>
-						<div class="form-group">	
-							<input type="password" class="form-control" id="password" placeholder="Password">
-						</div>
-						<input type="submit" class="btn btn-default">
-					</form>
+					<div class="row" id="dashboard-buttons">
+						<a class="btn btn-primary" href="therapist/dashboard">I'm a Therapist</a>
+					</div>
+					<div class="row" id="dashboard-buttons">
+						<a class="btn btn-default" href="patient/dashboard">I'm a Patient</a>
+					</div>
 				</div>
 			</div>
 		</div>
