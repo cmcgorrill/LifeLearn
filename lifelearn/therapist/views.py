@@ -1,17 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-def login(request):
+def testView(request):
 	return render(request, "index.html")
-
-def login(request):
-	if request.method == 'POST':
-		if request.POST['type'] == 0:
-			return render(request, "dashboard.html")
-		elif request.POST['type'] == 1:
-			return render(request, "patient-dashboard.html")
-	else:
-		return render(request, "index.html")
 
 def dashboard(request):
 	return render(request, "dashboard.html")
