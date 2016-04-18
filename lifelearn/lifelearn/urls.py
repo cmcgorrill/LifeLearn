@@ -22,6 +22,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.login),
 
-    url(r'^therapist/$', include('therapist.urls')),
-    url(r'^patient/$', include('therapist.urls')),
+    url(r'^therapist/', include('therapist.urls')),
+    url(r'^patient/', include('therapist.urls')),
 ]
