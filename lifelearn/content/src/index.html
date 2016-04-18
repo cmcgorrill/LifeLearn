@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% csrf_token %}
 <html>
 	<head>
 		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -14,14 +15,17 @@
 				<div id="login-container" class="col-sm-4 col-sm-offset-4 centering">
 					<h1>LifeLearn</h1>
 					<!-- login form -->
-					<form>
+					<form method="POST">
 						<div class="form-group">
-							<input type="email" class="form-control" id="email" placeholder="Email">
+							<select class="form-control" id="type" placeholder="User">
+								<option>Therapist</option>
+								<option>Patient</option>
+							</select>
 						</div>
 						<div class="form-group">	
 							<input type="password" class="form-control" id="password" placeholder="Password">
 						</div>
-						<a class="btn btn-default" href="dashboard">Submit</a>
+						<input type="submit" class="btn btn-default">
 					</form>
 				</div>
 			</div>
