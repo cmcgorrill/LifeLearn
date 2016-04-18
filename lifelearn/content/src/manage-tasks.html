@@ -1,0 +1,36 @@
+{% extends "base_caregiver.html" %}
+
+{% block content %}
+	<div id="leftcol" class="col-md-7">
+		<div id="appointments" class="row">
+			<h3>Common Tasks</h3>
+			<ul class="list-group">
+			  <li class="list-group-item"><span class="badge">14</span>Cras justo odio</li>
+			  <li class="list-group-item"><span class="badge">8</span>Dapibus ac facilisis in</li>
+			  <li class="list-group-item"><span class="badge">3</span>Morbi leo risus</li>
+			  <li class="list-group-item"><span class="badge">1</span>Porta ac consectetur ac</li>
+			  <li class="list-group-item"><span class="badge"></span>Vestibulum at eros</li>
+			</ul>
+		</div>
+		<!-- <div id="calendar" class="row">
+		</div> -->
+	</div>
+	<div id="rightcol" class="col-md-5">
+		<div id="all-patients" class="row">
+			<h3>All Tasks</h3>
+			<div class="form-group">
+			  <input type="text" class="form-control" placeholder="Search">
+			</div>
+			<ul class="list-group">
+			  <li class="list-group-item">Cras justo odio</li>
+			  <li class="list-group-item">Dapibus ac facilisis in</li>
+			  <li class="list-group-item">Morbi leo risus</li>
+			  <li class="list-group-item">Porta ac consectetur ac</li>
+			  <li class="list-group-item">Vestibulum at eros</li>
+			</ul>
+		</div>
+		<div id="dashboard-buttons" class="row">
+			<a class="btn btn-success" href="add-task">Add New Task</a>
+		</div>
+	</div>
+{% endblock %}

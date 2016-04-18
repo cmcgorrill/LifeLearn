@@ -11,7 +11,13 @@ def calendar(request):
 	return render(request, "calendar.html")
 
 def addPatient(request):
-	return render(request, "add-patient.html")
+	return render(request, "edit-patient.html")
+
+def editPatient(request):
+	return render(request, "edit-patient.html")
+
+def addTask(request):
+	return render(request, "edit-task.html")
 
 def editTask(request):
 	return render(request, "edit-task.html")
@@ -21,3 +27,6 @@ def patientInfo(request):
 
 def patientDashboard(request):
 	return render(request, "patient-dashboard.html")
+
+def manageTasks(request):
+	return render(request, "manage-tasks.html")
