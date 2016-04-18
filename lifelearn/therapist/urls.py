@@ -21,11 +21,11 @@ urlpatterns = [
     url(r'^dashboard', views.dashboard, name='dashboard'),
     url(r'^calendar', views.calendar, name='calendar'),
 
-    url(r'^add/patient$', views.addPatient, name='addPatient'),
+    url(r'^patient/add$', views.addPatient, name='addPatient'),
     url(r'^patient/(?P<id>[0-9]+)$', views.patientInfo, name='patientInfo'),
     url(r'^patient/(?P<id>[0-9]+)/edit$', views.editPatient, name='editPatient'),
 
-    url(r'^add/task$', views.editTask, name='editTask'),
+    url(r'^task/add$', views.editTask, name='editTask'),
     url(r'^task/(?P<id>[0-9]+)/edit$', views.editTask, name='editTask'),
     url(r'^task/manage$', views.manageTasks, name='manageTasks'),
 ]

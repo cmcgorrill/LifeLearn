@@ -22,16 +22,16 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^$', views.login, name='login'),
-    
-    url(r'^dashboard', views.dashboard, name='dashboard'),
-    url(r'^calendar', views.calendar, name='calendar'),
-    url(r'^add-patient', views.addPatient, name='addPatient'),
-    url(r'^edit-patient', views.editPatient, name='editPatient'),
-    url(r'^add-task', views.editTask, name='editTask'),
-    url(r'^edit-task', views.editTask, name='editTask'),
-    url(r'^patient-info', views.patientInfo, name='patientInfo'),
-    url(r'^manage-tasks', views.manageTasks, name='manageTasks'),
+
+    # url(r'^dashboard', views.dashboard, name='dashboard'),
+    # url(r'^calendar', views.calendar, name='calendar'),
+    # url(r'^add-patient', views.addPatient, name='addPatient'),
+    # url(r'^edit-patient', views.editPatient, name='editPatient'),
+    # url(r'^add-task', views.editTask, name='editTask'),
+    # url(r'^edit-task', views.editTask, name='editTask'),
+    # url(r'^patient-info', views.patientInfo, name='patientInfo'),
+    # url(r'^manage-tasks', views.manageTasks, name='manageTasks'),
 
     url(r'^therapist/', include('therapist.urls')),
-    url(r'^patient/', include('therapist.urls')),
+    url(r'^patient/', include('patient.urls')),
 ]
