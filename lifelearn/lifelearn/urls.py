@@ -20,4 +20,10 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.testView),
+    url(r'^dashboard', views.dashboard, name='dashboard'),
+    url(r'^calendar', views.calendar, name='calendar'),
+    url(r'^add-patient', views.addPatient, name='addPatient'),
+    url(r'^edit-task', views.editTask, name='editTask'),
+    url(r'^patient-info', views.patientInfo, name='patientInfo'),
+    url(r'^patientDashboard', views.patientDashboard, name='patientDashboard'),
 ]

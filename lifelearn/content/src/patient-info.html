@@ -1,18 +1,19 @@
+{% load staticfiles %}
 <html>
 	<head>
 		<!-- CSS -->
-		<link href="../assets/css/general.css" rel="stylesheet">
-		<link href="../assets/css/bootstrap.css" rel="stylesheet">
-		<link href="../assets/css/dashboard.css" rel="stylesheet">
-		<link href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css"></link>
+		<link href="{% static 'css/general.css' %}" rel="stylesheet">
+		<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+		<link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+		<link href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css' %}"></link>
 		
 		<!-- SCRIPTS -->
-		<script src="../assets/js/jquery.min.js"></script>
-		<script src="../assets/js/bootstrap.min.js"></script>
-	    <script src="../assets/js/docs.min.js"></script>
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	    <script src="{% static 'js/docs.min.js' %}"></script>
 
-	    <script src="../assets/js/node_modules/moment/moment.js"></script>
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
+	    <script src="{% static 'js/node_modules/moment/moment.js' %}"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js' %}"></script>
 		
 		<script type="text/javascript">
 			$(document).ready(function () {
