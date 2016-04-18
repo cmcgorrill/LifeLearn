@@ -25,8 +25,12 @@ def editTask(request):
 def patientInfo(request):
 	return render(request, "patient-info.html")
 
+def manageTasks(request):
+	return render(request, "manage-tasks.html")
+
+
 def patientDashboard(request):
 	return render(request, "patient-dashboard.html")
 
-def manageTasks(request):
-	return render(request, "manage-tasks.html")
+def completeTask(request):
+	return render(request, "complete-task.html")

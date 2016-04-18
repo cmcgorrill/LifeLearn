@@ -1,0 +1,36 @@
+{% extends "base_patient.html" %}
+
+{% block content %}
+	<div class="row"> 
+		<div id="leftcol" class="col-md-6">
+			<h2>Sequence Title</h2>
+		</div> <!-- /.left col -->
+		<div id="centercol" class="col-md-3">
+			<p>Sequence description</p>
+		</div> <!-- /.center col -->
+		<div id="rightcol" class="col-md-3">
+			<div class="row">
+				<a class="btn btn-default" href="#">Watch Video</a>
+			</div>
+		</div> <!-- /.right col -->
+	</div>  <!-- /.top row -->
+	<div class="row">
+		<div class="well">
+			<p>Sequence not in order</p>
+		</div>
+	</div> <!-- /.middle row -->
+	<div class="row">
+		<div class="col-md-3">
+			<p>Task 1 of 12</p>
+		</div>
+		<div class="col-md-3">
+			<a class="btn btn-success" href="#">Check</a>
+		</div>
+		<div class="col-md-3">
+			<a class="btn btn-warning" href="#">Hint</a>
+		</div>
+		<div class="col-md-3">
+			<a class="btn btn-default" href="#">Skip</a>
+		</div>
+	</div> <!-- /.bottom row -->
+{% endblock %}

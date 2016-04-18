@@ -31,4 +31,5 @@ urlpatterns = [
     
 
     url(r'^patient-dashboard', views.patientDashboard, name='patientDashboard'),
+    url(r'^complete-task', views.completeTask, name='completeTask'),
 ]
