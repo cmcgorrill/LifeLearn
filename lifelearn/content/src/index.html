@@ -1,11 +1,12 @@
+{% load staticfiles %}
 <html>
 	<head>
-		<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-    	<link href="../assets/css/login.css" rel="stylesheet">
+		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    	<link href="{% static 'css/login.css' %}" rel="stylesheet">
 
-    	<script src="../assets/js/jquery.min.js"></script>
-	    <script src="../assets/js/bootstrap.min.js"></script>
-	    <script src="../assets/js/docs.min.js"></script>
+    	<script src="{% static 'js/jquery.min.js' %}"></script>
+	    <script src="(% static 'js/bootstrap.min.js' %}"></script>
+	    <script src="{% static 'js/docs.min.js' %}"></script>
 	</head>
 	<body>
 		<div id="body" class="container-fluid">
@@ -20,7 +21,7 @@
 						<div class="form-group">	
 							<input type="password" class="form-control" id="password" placeholder="Password">
 						</div>
-						<a class="btn btn-default" href="dashboard.html">Submit</a>
+						<a class="btn btn-default" href="dashboard">Submit</a>
 					</form>
 				</div>
 			</div>
