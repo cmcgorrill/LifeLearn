@@ -34,7 +34,6 @@
 	    
 	</head>
 	<body>
-		
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <!-- Brand and toggle get grouped for better mobile display -->
@@ -69,39 +68,65 @@
 		  </div><!-- /.container-fluid -->
 		</nav>
 		<div id="body" class="container-fluid">
-			<div id="leftcol" class="col-md-7">
-				<div id="appointments" class="row">
-					<h3>Upcoming Appointments</h3>
-					<ul class="list-group">
-					  <li class="list-group-item">Cras justo odio</li>
-					  <li class="list-group-item">Dapibus ac facilisis in</li>
-					  <li class="list-group-item">Morbi leo risus</li>
-					  <li class="list-group-item">Porta ac consectetur ac</li>
-					  <li class="list-group-item">Vestibulum at eros</li>
-					</ul>
-				</div>
-				<!-- <div id="calendar" class="row">
-				</div> -->
-			</div>
-			<div id="rightcol" class="col-md-5">
-				<div id="all-patients" class="row">
-					<h3>Patients</h3>
-					<div class="form-group">
-					  <input type="text" class="form-control" placeholder="Search">
+			<div class="row"> 
+				<form>
+					<div id="leftcol" class="col-md-6">
+						<div id="add-new-card">
+							<div class="form-group">
+								<input type="text" class="form-control" id="sequence-name" placeholder="Sequence Name">
+							</div>
+							<div class="form-group">	
+								<textarea class="form-control" id="sequence-info" placeholder="Sequence Info"></textarea>
+							</div>
+						</div>
+					</div> <!-- /.left col -->
+					<div id="centercol" class="col-md-3">
+						<div class="row">
+							<a class="btn btn-default" href="patient-info.html">Cancel</a>
+						</div>
+						<div class="row">
+							<a class="btn btn-success" href="patient-info.html">Submit</a>
+						</div>
+					</div> <!-- /.center col -->
+				</form>
+				<div id="rightcol" class="col-md-3">
+					<div class="row">
+						<a class="btn btn-default" href="#">Add Video</a>
 					</div>
-					<ul class="list-group">
-					  <li class="list-group-item">Cras justo odio</li>
-					  <li class="list-group-item">Dapibus ac facilisis in</li>
-					  <li class="list-group-item">Morbi leo risus</li>
-					  <li class="list-group-item">Porta ac consectetur ac</li>
-					  <li class="list-group-item">Vestibulum at eros</li>
-					</ul>
-				</div>
-				<div id="dashboard-buttons" class="row">
-					<a class="btn btn-success" href="add-patient.html">Add New Patient</a>
-				</div>
-			</div>
-		</div>
-
+				</div> <!-- /.right col -->
+			</div>  <!-- /.top row -->
+			<div class="row">
+				<div id="" class="col-md-3">
+					<div id="add-new-card">
+						<form>
+							<div class="form-group">
+								<h1>New Card</h1>	
+								<textarea class="form-control" rows="5" id="card-info" placeholder="New Card"></textarea>
+							</div>
+							<div class="form-group">
+								<label for="card-position">Position:</label>
+								<select class="form-control" id="card-position" placeholder="Position">
+									<option>1</option>
+								    <option>2</option>
+								    <option>3</option>
+								    <option>4</option>
+								    <option>5</option>
+								    <option>6</option>
+								    <option>7</option>
+								    <option>8</option>
+								</select>
+							</div>
+							<a class="btn btn-default" href="#">Submit</a>
+						</form>
+					</div>
+				</div><!-- /.left col -->
+				<div id="rightcol" class="col-md-9">
+					<h1>Sequence</h1>
+					<div class="well">
+						<p>Sequence in order</p>
+					</div>
+				</div> <!-- /.right col -->
+			</div> <!-- /.bottom row -->
+		</div> <!-- /.body container -->
 	</body>
 </html>
