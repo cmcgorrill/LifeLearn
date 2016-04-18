@@ -4,3 +4,6 @@
 #leftcol {
 	padding-right: 5%;
 }
+#dashboard-buttons > a {
+	width: 100%
+}
