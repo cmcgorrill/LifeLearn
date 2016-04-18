@@ -1,9 +1,9 @@
-{% extends "base_caregiver.html" %}
+{% extends "base_patient.html" %}
 
 {% block content %}
 	<div id="leftcol" class="col-md-7">
-		<div id="appointments" class="row">
-			<h3>Upcoming Appointments</h3>
+		<div id="tasks" class="row">
+			<h3>Tasks</h3>
 			<ul class="list-group">
 			  <li class="list-group-item">Cras justo odio</li>
 			  <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -14,13 +14,18 @@
 		</div>
 		<!-- <div id="calendar" class="row">
 		</div> -->
+		<div id="progress" class="row">
+			<h3>My Progress</h3>
+			<ul class="list-group">
+			  <li class="list-group-item">Number of tasks remaining: </li>
+			  <li class="list-group-item">Last task completed: </li>
+			  <li class="list-group-item">Best task: </li>
+			  <li class="list-group-item">Worst task: </li>
+		</div>
 	</div>
 	<div id="rightcol" class="col-md-5">
-		<div id="all-patients" class="row">
-			<h3>Patients</h3>
-			<div class="form-group">
-			  <input type="text" class="form-control" placeholder="Search">
-			</div>
+		<div id="reminders" class="row">
+			<h3>Reminders</h3>
 			<ul class="list-group">
 			  <li class="list-group-item">Cras justo odio</li>
 			  <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -28,9 +33,6 @@
 			  <li class="list-group-item">Porta ac consectetur ac</li>
 			  <li class="list-group-item">Vestibulum at eros</li>
 			</ul>
-		</div>
-		<div id="dashboard-buttons" class="row">
-			<a class="btn btn-success" href="add-patient">Add New Patient</a>
 		</div>
 	</div>
 {% endblock %}

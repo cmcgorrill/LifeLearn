@@ -20,4 +20,4 @@ def patientInfo(request):
 	return render(request, "patient-info.html")
 
 def patientDashboard(request):
-	return render(request, "patientDashboard.html")
+	return render(request, "patient-dashboard.html")

@@ -25,5 +25,5 @@ urlpatterns = [
     url(r'^add-patient', views.addPatient, name='addPatient'),
     url(r'^edit-task', views.editTask, name='editTask'),
     url(r'^patient-info', views.patientInfo, name='patientInfo'),
-    url(r'^patientDashboard', views.patientDashboard, name='patientDashboard'),
+    url(r'^patient-dashboard', views.patientDashboard, name='patientDashboard'),
 ]
