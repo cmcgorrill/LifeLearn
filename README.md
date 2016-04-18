@@ -13,8 +13,9 @@ Once Python and Django have been installed, you can start the server on Windows 
 ```
 
 # Operation
-Once the server is running, you can access LifeLearn by navigating to http://localhost:8000/ in a web browser. (***add further instructions after fleshing out backend***)
+Once the server is running, you can access LifeLearn by navigating to http://localhost:8000/ in a web browser. From there, you can access either the Patient or Therapist dashboard by clicking on the appropriate buttons, at which point you will be able to interact with the system.
 
 # Unsupported features and bugs
 
-
+- Task creation and completion incomplete
+- Goal setting/tracking incomplete
