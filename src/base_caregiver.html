@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<!-- CSS -->
+		<link href="../assets/css/general.css" rel="stylesheet">
+		<link href="../assets/css/bootstrap.css" rel="stylesheet">
+		<link href="../assets/css/dashboard.css" rel="stylesheet">
+		<link href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css"></link>
+		
+		<!-- SCRIPTS -->
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/bootstrap.min.js"></script>
+	    <script src="../assets/js/docs.min.js"></script>
+
+	    <script src="../assets/js/node_modules/moment/moment.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function () {
+				// var date = new Date();
+				// var d = date.getDate();
+				// var m = date.getMonth();
+				// var y = date.getFullYear();
+				
+				$('#calendar').fullCalendar({
+					// header: {
+					// 	left: 'prev,next today',
+					// 	center: 'title',
+					// 	right: 'month,agendaWeek,agendaDay'
+					// },
+					// editable: true
+				});
+			});
+		</script>
+	    
+	</head>
+	<body>
+		
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="dashboard">LifeLearn</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li><a href="dashboard">Dashboard </a></li>
+		        <!-- if a patient is selected, show dropdown -->
+		        <li><a href="#">Manage Tasks</a></li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="#">{% user.name %}</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		<div id="body" class="container-fluid">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</body>
+</html>
