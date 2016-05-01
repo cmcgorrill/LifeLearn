@@ -4,12 +4,16 @@
 	<div id="leftcol" class="col-md-7">
 		<div id="add-new-container">
 			<h1>New Patient</h1>
-			<form>
-				<div class="form-group">
-					<input type="text" class="form-control" id="patient-name" placeholder="Patient Name">
+			<form class="form-inline">
+				<div class="row">
+					<div class="form-group col-xs-6">
+							<input type="text" class="form-control" id="patient-name" placeholder="Patient First Name">
+							<input type="text" class="form-control" id="patient-last-name" placeholder="Patient Last Name">
+					</div>
 				</div>
-				<div class="form-group">	
-					<textarea class="form-control" id="patient-info" placeholder="Patient Info"></textarea>
+				</br>
+				<div class="form-group col-xs-6 row">
+					<textarea class="form-control span12" cols="60" rows="6" id="patient-info" placeholder="Patient Info"></textarea>
 				</div>
 				<a class="btn btn-default" href="/therapist/dashboard">Submit</a>
 			</form>
