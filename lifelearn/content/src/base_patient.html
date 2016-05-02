@@ -60,9 +60,11 @@
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
-		<div id="body" class="container-fluid">
-			{% block content %}
-			{% endblock %}
+		<div id="body">
+			<div class="container-fluid">
+				{% block content %}
+				{% endblock %}
+			</div>
 		</div>
 	</body>
 </html>

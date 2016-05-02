@@ -1,63 +1,175 @@
 {% extends "base_caregiver.html" %}
 
 {% block content %}
-	<div class="row"> 
-		<form>
-			<div id="leftcol" class="col-md-6">
-				<div id="add-new-card">
+
+	<script>
+		function addCard() {
+			var text = $("#card-info");
+			var position = $("#card-position");
+			var sequence = $("#edit-task-sequence #insert");
+			
+			if(text.val() == "") {
+				alert("Enter step instructions before adding the card");
+			} else {
+				var newcard = $("<li class='edit-task-card'><textarea class='input'>" + text.val() + "</textarea><div class='text'>" + text.val() + "</div><div class='step divider_horizontal_bottom'><div class='step-text'>STEP X</div><div class='remove'>REMOVE</div></div></li>");
+				sequence.append(newcard);
+				
+				newcard.dblclick(function() {
+					$(this).find(".input").show().focus();
+					$(this).find(".step-text").hide();
+					$(this).find(".remove").css("display","table-cell");
+				});
+				
+				newcard.find(".input").on("blur", function() {
+					newcard.find(".text").html($(this).val());
+					$(this).hide();
+					newcard.find(".step-text").css("display","table-cell");
+					newcard.find(".remove").hide();
+				});
+				
+				newcard.find(".remove").click(function() {
+					removeCard(newcard);
+				});
+			}
+			
+			refreshStepNumbers();
+		}
+		
+		function removeCard(card) {
+			card.remove();
+		
+			refreshStepNumbers();
+		}
+		
+		function setVideoDialog() {
+			popup.setContents("<div style='padding:15px;'><div><input type='text' class='form-control' id='youtube-url-input' placeholder='Youtube URL'></div><div style='margin-top:15px;text-align:right;'><div class='btn btn-success' onclick='setVideo();'>Set Video</div></div></div>");
+			
+			$("#youtube-url-input").val($("#youtube-url").val());
+			
+			popup.open();
+		}
+		
+		function setVideo() {
+			var valid = validateYouTubeUrl($("#youtube-url-input").val());
+			if(false !== valid) {
+				$("#youtube-url").val($("#youtube-url-input").val());
+				
+				if(valid != "") {
+					$('#youtube-video-embed').attr('src', 'https://www.youtube.com/embed/' + valid + '?enablejsapi=1').css({"height":"141px","width":"250px","margin-bottom":"15px"});
+				} else {
+					$('#youtube-video-embed').css({"height":"0px","width":"0px","margin-bottom":"0px"});
+				}
+				popup.close();
+			} else {
+				alert("Invalid youtube video URL");
+			}
+		}
+		
+		function validateYouTubeUrl(url) {    
+			if(url == "") {
+				return "";
+			} else if (url != undefined || url != '') {        
+				var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
+				var match = url.match(regExp);
+				if (match && match[2].length == 11) {
+					return match[2];
+				}
+			}
+			
+			return false;
+		}
+		
+		function importCards() {
+			popup.setContents("<div style='padding:15px;'><div style='margin-bottom:10px;'>Chose another task to import cards from:</div><div class='border-all text-center' style='padding:10px;'>You do not have any tasks</div></div>");
+			
+			popup.open();
+		}
+		
+		function refreshStepNumbers() {
+		
+			var sequence = $("#edit-task-sequence #insert");
+			
+			var numCards = 0;
+			
+			sequence.find("li").each(function(index) {
+				if($(this).html() != "") {
+					numCards++;
+					$(this).find(".step-text").html("STEP " + numCards);
+				}
+			});
+			
+			if(numCards == 0) {
+				$("#new-card-instructions").show();
+			} else {
+				$("#new-card-instructions").hide();
+			}
+		}
+		
+		$(document).ready(function() { 
+			$(function() {
+				$( "#edit-task-sequence #insert" ).sortable({
+					stop: function( ) {
+						refreshStepNumbers();
+					}
+				});
+				$( "#edit-task-sequence #insert" ).disableSelection();
+			});
+		});
+		
+	</script>
+	
+	<form action='' method='post'>
+		
+		<input type='hidden' name='youtube-url' id='youtube-url' />
+		
+		<div class="row divider_horizontal_bottom" id='edit-task-header'> 
+			<div id="leftcol">
+				<div id="edit-task-info" class="col-md-8">
+					<h3>Task Information</h3>	
+					
 					<div class="form-group">
-						<input type="text" class="form-control" id="sequence-name" placeholder="Sequence Name">
+						<input type="text" class="form-control" id="task-name" placeholder="Task Name">
 					</div>
 					<div class="form-group">	
-						<textarea class="form-control" id="sequence-info" placeholder="Sequence Info"></textarea>
+						<textarea class="form-control" id="task-info" placeholder="Task Instructions"></textarea>
 					</div>
 				</div>
-			</div> <!-- /.left col -->
-			<div id="centercol" class="col-md-3">
-				<div class="row">
-					<a class="btn btn-default" href="/therapist/task/manage">Cancel</a>
-				</div>
-				<div class="row">
-					<a class="btn btn-success" href="/therapist/task/manage">Submit</a>
-				</div>
-			</div> <!-- /.center col -->
-		</form>
-		<div id="rightcol" class="col-md-3">
-			<div class="row">
-				<a class="btn btn-default" href="#">Add Video</a>
 			</div>
-		</div> <!-- /.right col -->
-	</div>  <!-- /.top row -->
-	<div class="row">
-		<div id="" class="col-md-3">
-			<div id="add-new-card">
+			<div id="edit-task-video" class="col-md-4">
+				<h3>Instructional Video</h3>	
+				<div><iframe id="youtube-video-embed" type="text/html" height="0" width="0" frameborder="0" allowfullscreen></iframe></div>
+				<div class="btn btn-primary" href="/therapist/task/manage" onclick='setVideoDialog();'>Add Instructional Video</div>
+			</div>
+		</div>  <!-- /.top row -->
+		<div class="row divider_horizontal_bottom">
+			<div class="col-md-2 divider_vertical_right" id="edit-task-new-card">
 				<form>
 					<div class="form-group">
-						<h1>New Card</h1>	
-						<textarea class="form-control" rows="5" id="card-info" placeholder="New Card"></textarea>
+						<div style='float:left;'><h3>New Card</h3></div>
+						<div style='float:right;margin-bottom:10px;'><div class='btn btn-default' onclick='importCards();'>Import</div></div>
+						<div class='clearfix'></div>
+						<textarea class="form-control" rows="5" id="card-info" placeholder="New Card" style='resize:vertical;height:200px;'></textarea>
 					</div>
-					<div class="form-group">
-						<label for="card-position">Position:</label>
-						<select class="form-control" id="card-position" placeholder="Position">
-							<option>1</option>
-						    <option>2</option>
-						    <option>3</option>
-						    <option>4</option>
-						    <option>5</option>
-						    <option>6</option>
-						    <option>7</option>
-						    <option>8</option>
-						</select>
-					</div>
-					<a class="btn btn-default" href="#">Submit</a>
+
+					<div class='text-right'><div class='btn btn-primary' onclick='addCard();'>Add Card</div></div>
+					<div class='clearfix'></div>
 				</form>
-			</div>
-		</div><!-- /.left col -->
-		<div id="rightcol" class="col-md-9">
-			<h1>Sequence</h1>
-			<div class="well">
-				<p>Sequence in order</p>
-			</div>
-		</div> <!-- /.right col -->
-	</div> <!-- /.bottom row -->
+			</div><!-- /.left col -->
+			<div id="rightcol" class="col-md-10">
+				<h3>Task Sequence</h3>
+				<div class="well" id='edit-task-sequence'>
+					<div id='new-card-instructions'>Start by adding a card in the left pane</div>
+					<ul id='insert'></ul>
+				</div>
+			</div> <!-- /.right col -->
+		</div> <!-- /.bottom row -->
+		<div class="row">
+			<div id="rightcol" class="col-md-12 text-right">
+				<div class='options'>
+					<a class="btn btn-default" style='margin-left:10px;' href="/therapist/task/manage">Cancel</a>
+					<input type='submit' class="btn btn-success" style='margin-left:10px;' value='Save Task' />
+				</div>
+			</div> <!-- /.right col -->
+		</div>
+	</form>
 {% endblock %}

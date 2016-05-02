@@ -4,8 +4,12 @@ from django.shortcuts import render
 def testView(request):
 	return render(request, "index.html")
 
+def therapistlogin(request):
+	return render(request, "therapist-login.html")
+	
 def dashboard(request):
 	return render(request, "dashboard.html")
+
 
 def calendar(request):
 	return render(request, "calendar.html")

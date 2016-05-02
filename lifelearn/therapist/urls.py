@@ -18,6 +18,7 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
+	url(r'^login', views.therapistlogin, name='login'),
     url(r'^dashboard', views.dashboard, name='dashboard'),
     url(r'^calendar', views.calendar, name='calendar'),
 

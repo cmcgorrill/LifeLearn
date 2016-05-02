@@ -1,9 +1,172 @@
 #body {
-	width: 90%;
+	width: 100%;
+	margin:0px;
+	padding:0px;
 }
+
 #leftcol {
-	padding-right: 5%;
+	padding-right:45px;
 }
+
 #dashboard-buttons > a {
 	width: 100%
+}
+
+.divider_horizontal_top {
+	border-top:1px solid #eeeeee;
+}
+
+.divider_horizontal_bottom {
+	border-bottom:1px solid #eeeeee;
+}
+
+.divider_vertical_right {
+	border-right:1px solid #eeeeee;
+}
+
+.divider_vertical_left {
+	border-left:1px solid #eeeeee;
+}
+
+.border-all {
+	border:1px solid #eeeeee;
+	border-radius:5px;
+}
+
+.navbar {
+	border:0px !important;
+	margin-bottom:0px !important;
+}
+#edit-task-header h3,
+#edit-task-new-card h3,
+#edit-task-video h3  {
+	margin:0px;
+	padding:0px 0px 10px 0px;
+}
+
+#edit-task-info {
+	padding:20px 20px 5px 20px;
+}
+
+#edit-task-new-card {
+	padding:20px;
+	background-color:#f6f6f6;
+	margin:0px !important;
+}
+
+#edit-task-new-card .preview {
+	height:100px;
+}
+
+#edit-task-header .options {
+	padding:20px 5px;
+	text-align:right;
+}
+
+#edit-task-sequence {
+	max-height:250px;
+	white-space: nowrap;
+	overflow:auto;
+}
+
+#edit-task-sequence #insert {
+	margin:0px;
+	padding:0px;
+	list-style-type: none;
+}
+
+.edit-task-card {
+	background-color:white;
+	display:inline-block;
+	vertical-align: top;
+	margin-right:20px;
+	border:1px solid #eeeeee;
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.40);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.40);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.40);
+	cursor:pointer;
+	position:relative;
+	height:175px;
+	width:150px;
+	padding:10px;
+	text-align:center;
+}
+
+.edit-task-card .input {
+	border:0px;
+	margin:0px;
+	padding:10px;
+	resize:none;
+	position:absolute;
+	top:0px;
+	left:0px;
+	bottom:30px;
+	width:100%;
+	z-index:99;
+	display:none;
+}
+
+.edit-task-card .step {
+	border:0px;
+	margin:0px;
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	width:100%;
+	border-top:1px solid #eeeeee;
+	text-align:center;
+	font-size:12px;
+	color:#505050;
+	display:table;
+	height:30px;
+}
+
+.edit-task-card .step .step-text {
+	display:table-cell;
+	vertical-align:middle;
+}
+
+.edit-task-card .step .remove {
+	vertical-align:middle;
+	background-color:red;
+	color:white;
+	display:none;
+}
+
+#edit-task-video {
+	padding:15px;
+}
+
+.overlay {
+position:absolute;
+position:fixed;
+top:0px;
+right:0px;
+bottom:0px;
+left:0px;
+background-image:url(../images/overlay.png);
+}
+
+#popup {
+	left:50%;
+	top:50%;
+	z-index:100;
+	overflow:auto;
+	display:none;
+	max-width:75%;
+	min-width:300px;
+	max-height:75%;
+	min-height:75px;
+	position:fixed;
+	box-shadow: 0px 0px 10px #404040;
+	padding-bottom:0px;
+	background-color:white;
+}
+
+#popup_footer {
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	background-color:red;
 }
