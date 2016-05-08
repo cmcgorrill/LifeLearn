@@ -1,40 +1,44 @@
 {% extends "base_caregiver.html" %}
 
 {% block content %}
+{% load staticfiles %}
+</br>
+<div class="container-fluid" style="text-align: center">
+	<img src="{% static 'images/saget.jpg' %}"><h3>Bob Saget</h3>
+</div>
 	<div id="leftcol" class="col-md-7">
 		<div id="appointments" class="row">
 			<h3>Progress</h3>
 			<ul class="list-group">
-			  <li class="list-group-item">Cras justo odio</li>
-			  <li class="list-group-item">Dapibus ac facilisis in</li>
-			  <li class="list-group-item">Morbi leo risus</li>
-			  <li class="list-group-item">Porta ac consectetur ac</li>
-			  <li class="list-group-item">Vestibulum at eros</li>
+			  <li class="list-group-item">Task 1 - 80%</li>
+			  <li class="list-group-item">Task 2 - 70%</li>
+			  <li class="list-group-item">Task 3 - 60%</li>
+			  <li class="list-group-item">Task 4 - 50%</li>
+			  <li class="list-group-item">Task 5 - 40%</li>
 			</ul>
 		</div>
-		<div id="dashboard-buttons" class="row">
-			<a class="btn btn-success" href="#">Assign New Task</a>
-		</div>
+		<div class="container-fluid">
+		<div id="dashboard-buttons" class="row-fluid">
+			<a class="btn btn-primary btn-lg" href="/therapist/task/manage">Assign Existing Task</a>
+			<a class="btn btn-success btn-lg" href="/therapist/task/add">Create New Task</a>
+		</div></div>
 		<!-- <div id="calendar" class="row">
 		</div> -->
 	</div>
 	<div id="rightcol" class="col-md-5">
-		<h3>(Patient name)</h3>
+
+		<h3 id="all-patients" class="row">
+			<h3> Patient Info</h3>
+			<ul class="list-group">
+			  <li class="list-group-item">First name: Bob</li>
+			  <li class="list-group-item">Last name: Saget</li>
+			  <li class="list-group-item">Age: 59</li>
+			  <li class="list-group-item">Contact: 202-555-0144</li>
+			</ul>
+
+		<div class="container-fluid">
 		<div id="dashboard-buttons" class="row">
 			<a class="btn btn-success" href="#">Edit Patient Information</a>
-		</div>
-		<div id="all-patients" class="row">
-			<ul class="list-group">
-			  <li class="list-group-item active">
-			  	<div id="patient-info">
-			  		Patient Info
-			  	</div>
-			  </li>
-			  <li class="list-group-item">Dapibus ac facilisis in</li>
-			  <li class="list-group-item">Morbi leo risus</li>
-			  <li class="list-group-item">Porta ac consectetur ac</li>
-			  <li class="list-group-item">Vestibulum at eros</li>
-			</ul>
-		</div>
+		</div></div>
 	</div>
 {% endblock %}
