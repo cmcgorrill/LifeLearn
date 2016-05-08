@@ -7,7 +7,8 @@ class Task(models.Model):
 	# video url
 	video = models.CharField(max_length=100)
 
-	
+	# card list in the format:
+	# "card_id;card_id;card_id;..."
 	cards = models.CharField(max_length=200)
 
 class Card(models.Model):

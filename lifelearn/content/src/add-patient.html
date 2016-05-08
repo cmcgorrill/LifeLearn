@@ -1,0 +1,32 @@
+{% extends "base_caregiver.html" %}
+
+{% block content %}
+	<div id="leftcol" class="col-md-7">
+		<div id="add-new-container">
+			<h1>New Patient</h1>
+			{% if error %}
+			{{error}}
+			{% elif success %}
+			{{success}}
+			{% endif %}
+			<form class="form-inline" method="post">
+				<div class="row">
+					<div class="form-group col-xs-6">
+							<input type="text" class="form-control" id="patient-name" name="patient-name" placeholder="Patient First Name">
+							<input type="text" class="form-control" id="patient-last-name" name="patient-last-name" placeholder="Patient Last Name">
+					</div>
+				</div>
+				</br>
+				<div class="form-group col-xs-6 row">
+					<textarea class="form-control span12" cols="60" rows="6" id="patient-info" name="patient-info" placeholder="Patient Info"></textarea>
+				</div>
+				<button class="btn btn-default">Submit</button>
+
+				{% csrf_token %}
+			</form>
+		</div>
+	</div>
+	<div id="rightcol" class="col-md-5">
+		<h1>Appointment Times</h1>
+	</div>
+{% endblock %}

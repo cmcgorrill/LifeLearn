@@ -19,16 +19,20 @@
 	<div id="rightcol" class="col-md-5">
 		<div id="all-patients" class="row">
 			<h3>Patients</h3>
+
+			{% if not patients %}
+			You have no patients.<br/><br/>
+			{% else %}
 			<div class="form-group">
 			  <input type="text" class="form-control" placeholder="Search">
 			</div>
 			<ul class="list-group">
-				<li class="list-group-item"><a href="patient/1">Patient 1</a></li>
-				<li class="list-group-item"><a href="">Patient 2</a></li>
-				<li class="list-group-item"><a href="">Patient 3</a></li>
-				<li class="list-group-item"><a href="">Patient 4</a></li>
-				<li class="list-group-item"><a href="">Patient 5</a></li>
+				{% for p in patients %}
+				<li class="list-group-item"><a href="patient/{{p.id}}">{{p.last_name}}, {{p.first_name}}</a></li>
+				{% endfor %}
 			</ul>
+			{% endif %}
+
 		</div>
 		<div id="dashboard-buttons" class="row">
 			<a class="btn btn-success" href="/therapist/patient/add">Add New Patient</a>
