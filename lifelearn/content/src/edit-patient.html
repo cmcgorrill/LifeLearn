@@ -4,18 +4,25 @@
 	<div id="leftcol" class="col-md-7">
 		<div id="add-new-container">
 			<h1>New Patient</h1>
-			<form class="form-inline">
+			{% if not p or error %}
+			{{error}}
+			{% elif success %}
+			{{success}}
+			{% endif %}
+			<form class="form-inline" method="post">
 				<div class="row">
 					<div class="form-group col-xs-6">
-							<input type="text" class="form-control" id="patient-name" placeholder="Patient First Name">
-							<input type="text" class="form-control" id="patient-last-name" placeholder="Patient Last Name">
+							<input type="text" class="form-control" id="patient-name" name="patient-name" placeholder="Patient First Name" value="{{p.first_name}}">
+							<input type="text" class="form-control" id="patient-last-name" name="patient-last-name" placeholder="Patient Last Name" value="{{p.last_name}}">
 					</div>
 				</div>
 				</br>
 				<div class="form-group col-xs-6 row">
-					<textarea class="form-control span12" cols="60" rows="6" id="patient-info" placeholder="Patient Info"></textarea>
+					<textarea class="form-control span12" cols="60" rows="6" id="patient-info" name="patient-info" placeholder="Patient Info">{{p.info}}</textarea>
 				</div>
-				<a class="btn btn-default" href="/therapist/dashboard">Submit</a>
+				<button class="btn btn-default">Submit</button>
+
+				{% csrf_token %}
 			</form>
 		</div>
 	</div>
