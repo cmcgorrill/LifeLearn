@@ -5,4 +5,4 @@ class Patient(models.Model):
 	first_name = models.CharField(max_length=30)
 	last_name = models.CharField(max_length=30)
 	info = models.CharField(max_length=500)
-	therapist = models.ForeignKey(Therapist)
+	therapist = models.ForeignKey(Therapist, null=True)

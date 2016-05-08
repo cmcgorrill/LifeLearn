@@ -3,8 +3,13 @@
 {% block content %}
 {% load staticfiles %}
 </br>
+
+{% if not p %}
+{{error}}
+{% else %}
+
 <div class="container-fluid" style="text-align: center">
-	<img src="{% static 'images/saget.jpg' %}"><h3>Bob Saget</h3>
+	<img src="{% static 'img/person.png' %}"><h3>{{p.first_name}} {{p.last_name}}</h3>
 </div>
 	<div id="leftcol" class="col-md-7">
 		<div id="appointments" class="row">
@@ -30,15 +35,17 @@
 		<h3 id="all-patients" class="row">
 			<h3> Patient Info</h3>
 			<ul class="list-group">
-			  <li class="list-group-item">First name: Bob</li>
-			  <li class="list-group-item">Last name: Saget</li>
+			  <li class="list-group-item">First name: {{p.first_name}}</li>
+			  <li class="list-group-item">Last name: {{p.last_name}}</li>
 			  <li class="list-group-item">Age: 59</li>
-			  <li class="list-group-item">Contact: 202-555-0144</li>
+			  <li class="list-group-item">Contact: 207-573-8022</li>
 			</ul>
 
 		<div class="container-fluid">
 		<div id="dashboard-buttons" class="row">
-			<a class="btn btn-success" href="#">Edit Patient Information</a>
+			<a class="btn btn-success" href="/therapist/patient/{{p.id}}/edit">Edit Patient Information</a>
 		</div></div>
 	</div>
+
+{% endif %}
 {% endblock %}
