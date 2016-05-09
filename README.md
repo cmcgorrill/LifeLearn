@@ -2,7 +2,7 @@
 SWEN 444 Team Project
 
 # Accessing LifeLearn
-LifeLearn may be accessed at this location:
+LifeLearn may be accessed at this location: http://45.55.198.206:8000/
 Alternatively, if you wish to install LifeLearn on your own machine, you can do so by following the system installation instructions.
 
 # System Installation
