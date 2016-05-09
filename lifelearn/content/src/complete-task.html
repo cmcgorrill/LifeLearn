@@ -53,16 +53,7 @@
 		}
 		
 		$(document).ready(function() { 
-			$(function() {
-				$( "#sequence" ).sortable({
-					stop: function( ) {
-						refreshStepNumbers();
-					}
-				});
-				$( "#sequence" ).disableSelection();
-				
-			});
-			
+		
 			$( "#sequence" ).each(function(){
 				// get current ul
 				var $ul = $(this);
@@ -80,8 +71,18 @@
 					  return( isOddOrEven*isPosOrNeg );
 				})
 				// append list items to ul
-				.appendTo($ul);            
-			  });
+				.appendTo($ul);        
+			});
+			  
+			$(function() {
+				$( "#sequence" ).sortable({
+					stop: function( ) {
+						refreshStepNumbers();
+					}
+				});
+				$( "#sequence" ).disableSelection();
+				
+			});
 			
 			refreshStepNumbers();
 		});
@@ -114,7 +115,7 @@
 			<ul id='sequence'>
 				<li class='edit-task-card' style='height:auto;'>
 					<div class='divider_horizontal_bottom' style='min-height:200px;margin-bottom:10px;'>
-						Get two slices of bread
+						Add mayo
 					</div>
 					<div class='step-text'></div>
 				</li>
@@ -126,31 +127,31 @@
 				</li>
 				<li class='edit-task-card' style='height:auto;'>
 					<div class='divider_horizontal_bottom' style='min-height:200px;margin-bottom:10px;'>
-						Add slice of cheese
-					</div>
-					<div class='step-text'></div>
-				</li>
-				<li class='edit-task-card' style='height:auto;'>
-					<div class='divider_horizontal_bottom' style='min-height:200px;margin-bottom:10px;'>
-						Layer ham
-					</div>
-					<div class='step-text'></div>
-				</li>
-				<li class='edit-task-card' style='height:auto;'>
-					<div class='divider_horizontal_bottom' style='min-height:200px;margin-bottom:10px;'>
-						Add mayo
-					</div>
-					<div class='step-text'></div>
-				</li>
-				<li class='edit-task-card' style='height:auto;'>
-					<div class='divider_horizontal_bottom' style='min-height:200px;margin-bottom:10px;'>
 						Get knife
 					</div>
 					<div class='step-text'></div>
 				</li>
 				<li class='edit-task-card' style='height:auto;'>
 					<div class='divider_horizontal_bottom' style='min-height:200px;margin-bottom:10px;'>
+						Add slice of cheese
+					</div>
+					<div class='step-text'></div>
+				</li>
+				<li class='edit-task-card' style='height:auto;'>
+					<div class='divider_horizontal_bottom' style='min-height:200px;margin-bottom:10px;'>
 						Cut in half
+					</div>
+					<div class='step-text'></div>
+				</li>
+				<li class='edit-task-card' style='height:auto;'>
+					<div class='divider_horizontal_bottom' style='min-height:200px;margin-bottom:10px;'>
+						Get two slices of bread
+					</div>
+					<div class='step-text'></div>
+				</li>
+				<li class='edit-task-card' style='height:auto;'>
+					<div class='divider_horizontal_bottom' style='min-height:200px;margin-bottom:10px;'>
+						Layer ham
 					</div>
 					<div class='step-text'></div>
 				</li>

@@ -119,6 +119,8 @@
 	width:150px;
 	padding:10px;
 	text-align:center;
+	word-wrap: break-word;
+	white-space: normal;
 }
 
 .edit-task-card .input {
