@@ -19,4 +19,5 @@ from . import views
 
 urlpatterns = [
     url(r'^dashboard$', views.patientDashboard, name='patientDashboard'),
+	url(r'^task$', views.completeTask, name='completeTask'),
 ]

@@ -1,36 +1,174 @@
 {% extends "base_patient.html" %}
 
 {% block content %}
+	<script>
+		function showVideo() {
+			popup.setContents('<iframe width="560" height="315" src="https://www.youtube.com/embed/ad5QOYLt_cI?autoplay=1&start=50" frameborder="0" allowfullscreen></iframe>');
+			popup.open();
+		}
+		
+		popup.onClose(function() {
+			popup.setContents("");
+		});
+		
+		function decreaseFont() {
+			var size = parseInt($(".edit-task-card").css("font-size"))-2;
+			
+			if(size < 12) { size = 12; }
+			
+			$(".edit-task-card").css("font-size", size + "px");
+		}
+		
+		function increaseFont() {
+			var size = parseInt($(".edit-task-card").css("font-size"))+2;
+			
+			if(size > 28) { size = 28; }
+			
+			$(".edit-task-card").css("font-size", size + "px");
+		}
+		
+		function refreshStepNumbers() {
+			var sequence = $("#sequence");
+			
+			var numCards = 1;
+			
+			sequence.find("> li").each(function(index) {
+				$(this).css("height","auto");
+				$(this).find(".step-text").html("STEP " + numCards);
+				numCards++;
+			});
+		}
+		
+		function checkCards() {
+			$( "#sequence li" ).each(function(){
+				$(this).removeClass("card-correct");  
+				$(this).removeClass("card-incorrect");  
+				
+				if(Math.floor((Math.random() * 10) + 1) > 4) {
+					$(this).addClass("card-correct");  
+				} else {
+					$(this).addClass("card-incorrect");  
+				}
+			});
+		}
+		
+		$(document).ready(function() { 
+			$(function() {
+				$( "#sequence" ).sortable({
+					stop: function( ) {
+						refreshStepNumbers();
+					}
+				});
+				$( "#sequence" ).disableSelection();
+				
+			});
+			
+			$( "#sequence" ).each(function(){
+				// get current ul
+				var $ul = $(this);
+				// get array of list items in current ul
+				var $liArr = $ul.children('li');
+				// sort array of list items in current ul randomly
+				$liArr.sort(function(a,b){
+					  // Get a random number between 0 and 10
+					  var temp = parseInt( Math.random()*10 );
+					  // Get 1 or 0, whether temp is odd or even
+					  var isOddOrEven = temp%2;
+					  // Get +1 or -1, whether temp greater or smaller than 5
+					  var isPosOrNeg = temp>5 ? 1 : -1;
+					  // Return -1, 0, or +1
+					  return( isOddOrEven*isPosOrNeg );
+				})
+				// append list items to ul
+				.appendTo($ul);            
+			  });
+			
+			refreshStepNumbers();
+		});
+	</script>
+	
 	<div class="row"> 
-		<div id="leftcol" class="col-md-6">
-			<h2>Sequence Title</h2>
+		<div id="leftcol" class="col-md-9">
+			<h3>Task: Making a sandwhich</h3>
+			<p>The purpose of this task is to walk you through how to make a ham sandwhich.</p>
 		</div> <!-- /.left col -->
-		<div id="centercol" class="col-md-3">
-			<p>Sequence description</p>
-		</div> <!-- /.center col -->
 		<div id="rightcol" class="col-md-3">
-			<div class="row">
-				<a class="btn btn-default" href="#">Watch Video</a>
+			<div class="row text-right">
+				<div style='padding:20px;'>
+					<div class="btn btn-primary" onclick='showVideo();'>Watch Instructional Video</div>
+					
+					<div class='clearfix'></div>
+					<div style='padding-top:10px;display:table;float:right;margin-left:10px;'>
+						<div class='changeTextSize' onclick='increaseFont();'>A+</div>
+					</div>
+					<div style='padding-top:10px;display:table;float:right;'>
+						<div class='changeTextSize' onclick='decreaseFont();'>A-</div>
+					</div>
+					<div class='clearfix'></div>
+				</div>
 			</div>
 		</div> <!-- /.right col -->
 	</div>  <!-- /.top row -->
 	<div class="row">
-		<div class="well">
-			<p>Sequence not in order</p>
+		<div class="well" id="task-sequence">
+			<ul id='sequence'>
+				<li class='edit-task-card' style='height:auto;'>
+					<div class='divider_horizontal_bottom' style='min-height:200px;margin-bottom:10px;'>
+						Get two slices of bread
+					</div>
+					<div class='step-text'></div>
+				</li>
+				<li class='edit-task-card' style='height:auto;'>
+					<div class='divider_horizontal_bottom' style='min-height:200px;margin-bottom:10px;'>
+						Butter one side of each slice of bread
+					</div>
+					<div class='step-text'></div>
+				</li>
+				<li class='edit-task-card' style='height:auto;'>
+					<div class='divider_horizontal_bottom' style='min-height:200px;margin-bottom:10px;'>
+						Add slice of cheese
+					</div>
+					<div class='step-text'></div>
+				</li>
+				<li class='edit-task-card' style='height:auto;'>
+					<div class='divider_horizontal_bottom' style='min-height:200px;margin-bottom:10px;'>
+						Layer ham
+					</div>
+					<div class='step-text'></div>
+				</li>
+				<li class='edit-task-card' style='height:auto;'>
+					<div class='divider_horizontal_bottom' style='min-height:200px;margin-bottom:10px;'>
+						Add mayo
+					</div>
+					<div class='step-text'></div>
+				</li>
+				<li class='edit-task-card' style='height:auto;'>
+					<div class='divider_horizontal_bottom' style='min-height:200px;margin-bottom:10px;'>
+						Get knife
+					</div>
+					<div class='step-text'></div>
+				</li>
+				<li class='edit-task-card' style='height:auto;'>
+					<div class='divider_horizontal_bottom' style='min-height:200px;margin-bottom:10px;'>
+						Cut in half
+					</div>
+					<div class='step-text'></div>
+				</li>
+			</ul>
 		</div>
 	</div> <!-- /.middle row -->
 	<div class="row">
 		<div class="col-md-3">
-			<p>Task 1 of 12</p>
+			<p>Task 3 of 12</p>
 		</div>
 		<div class="col-md-3">
-			<a class="btn btn-success" href="#">Check</a>
+			<a class="btn btn-warning" href="#">Get a hint</a>
 		</div>
 		<div class="col-md-3">
-			<a class="btn btn-warning" href="#">Hint</a>
+			<a class="btn btn-success" onclick="checkCards()">Check Order</a>
 		</div>
 		<div class="col-md-3">
-			<a class="btn btn-default" href="#">Skip</a>
+			<a class="btn btn-default" href="#">Skip to next task</a>
 		</div>
 	</div> <!-- /.bottom row -->
 {% endblock %}
